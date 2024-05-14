@@ -1,0 +1,105 @@
+import java.util.Scanner;
+
+public class MinorProject {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the no of members");
+        int n = sc.nextInt();
+        Member[] arr = new Member[n];
+        for (int i = 0; i < n; i++) {
+            System.out.println("Enter the MemberID " + ":");
+            int memberID = sc.nextInt();
+            System.out.println("Enter Lastname: ");
+            String lastName = sc.next();
+            System.out.println("Enter Firstname: ");
+            String firstName = sc.next();
+            System.out.println("Handicap: ");
+            int handicap = sc.nextInt();
+            System.out.println("Gender: ");
+            char gender=sc.next().charAt(0);
+            System.out.println("Team: ");
+            String team = sc.next();
+            System.out.println("Member Type: ");
+            String memberType = sc.next();
+            System.out.println("Coach: ");
+            int coach = sc.nextInt();
+            System.out.println("phone: ");
+            long Phone = sc.nextLong();
+            System.out.println("day: ");
+            int day = sc.nextInt();
+            System.out.println("month: ");
+            String month = sc.next();
+            System.out.println("year: ");
+            int year = sc.nextInt();
+            Date JoinDate=new Date(day,month,year);
+            Member ob2=new Member(memberID,lastName,firstName,handicap,gender,team,memberType,coach,Phone, JoinDate);
+
+
+        if(memberType=="senior" && handicap<12){
+            ob2.Display();
+        }
+        else if(gender=='M' && memberType=="senior" && team=="TeamB"){
+            ob2.Display();
+        }
+         else if(year<9) {
+             ob2.Display();
+         }
+         else if(year==9 && (month=="jan"||month=="feb"||month=="mar")){
+             ob2.Display();
+         }
+         else if(year==9 && month=="apr" && day<7){
+             ob2.Display();
+        }
+
+    }}
+}
+class Date{
+    private int day;
+    private String month;
+    private int year;
+    public Date(int day, String month, int year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+
+    }
+}
+class Member{
+    private int MemberID;
+    private String LastName;
+    private String FirstName;
+    private int Handicap;
+    private char Gender;
+    private String Team;
+    private String MemberType;
+    private int Coach;
+    private long Phone;
+    private Date JoinDate;
+    Member(int MemberID,String LastName,String FirstName,int Handicap,char Gender,String Team,String MemberType,int Coach,long Phone,Date joinDate){
+        this.MemberID = MemberID;
+        this.LastName = LastName;
+        this.FirstName = FirstName;
+        this.Handicap = Handicap;
+        this.Gender = Gender;
+        this.Team = Team;
+        this.MemberType = MemberType;
+        this.Coach = Coach;
+        this.Phone = Phone;
+        this.JoinDate = joinDate;
+
+    }
+    void Display(){
+        System.out.println("MemberID: " + MemberID);
+        System.out.println("LastName: " + LastName);
+        System.out.println("FirstName: " + FirstName);
+        System.out.println("Handicap: " + Handicap);
+        System.out.println("Gender: " + Gender);
+        System.out.println("Team: " + Team);
+        System.out.println("MemberType: " + MemberType);
+        System.out.println("Coach: " + Coach);
+        System.out.println("Phone: " + Phone);
+        System.out.println("JoinDate: " + JoinDate);
+
+    }
+
+}
